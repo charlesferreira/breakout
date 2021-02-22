@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5572253493588351790}
   - component: {fileID: 2521960736536755396}
   - component: {fileID: 7459199844734163785}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4176967996555947922}
   - component: {fileID: 4176967996555947925}
   - component: {fileID: 4176967996555947924}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pad
   m_TagString: Pad
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 5285619473787311845}
   - component: {fileID: 6927185396888787725}
   - component: {fileID: 3585509296544803990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 353147740652011823}
   - component: {fileID: 1819409841201214622}
   - component: {fileID: 6088102040798591445}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
