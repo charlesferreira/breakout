@@ -21,7 +21,7 @@ public class Brick : MonoBehaviour
         hits -= 1;
         if (hits <= 0)
         {
-            Destroy(gameObject);
+            DestroyThisBrick();
         }
         else
         {
@@ -33,5 +33,11 @@ public class Brick : MonoBehaviour
     private void ResetMaterial()
     {
         renderer.material = originalMaterial;
+    }
+
+    private void DestroyThisBrick()
+    {
+        Destroy(gameObject);
+        GameManager.Instance.Score += points;
     }
 }

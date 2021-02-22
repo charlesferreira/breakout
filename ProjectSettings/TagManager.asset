@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ball
-  - Block
   - Pad
+  - Brick
   - PowerUp
   layers:
   - Default
