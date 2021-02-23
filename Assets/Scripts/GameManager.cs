@@ -53,16 +53,39 @@ public class GameManager : MonoBehaviour
         switch (type)
         {
             case PowerUpType.SplitBall:
-                var newBalls = new List<Ball>();
-                balls.ForEach(ball =>
-                {
-                    var angle = Vector3.SignedAngle(Vector3.up, ball.Velocity, Vector3.forward) + 22.5f;
-                    newBalls.Add(CreateBall(ball.transform.position, angle));
-                    ball.Velocity = Quaternion.Euler(0, 0, -22.5f) * ball.Velocity;
-                });
-                balls.AddRange(newBalls);
+                SplitBall();
+                break;
+
+            case PowerUpType.MultiBall:
+                MultiBall();
                 break;
         }
+    }
+
+    private void SplitBall()
+    {
+        var newBalls = new List<Ball>();
+        balls.ForEach(ball =>
+        {
+            var angle = Vector3.SignedAngle(Vector3.up, ball.Velocity, Vector3.forward) + 22.5f;
+            newBalls.Add(CreateBall(ball.transform.position, angle));
+            ball.Velocity = Quaternion.Euler(0, 0, -22.5f) * ball.Velocity;
+        });
+        balls.AddRange(newBalls);
+    }
+
+    private void MultiBall()
+    {
+        var newBalls = new List<Ball>();
+        balls.ForEach(ball =>
+        {
+            for (var i = 1; i < 8; i++)
+            {
+                var angle = Vector3.SignedAngle(Vector3.up, ball.Velocity, Vector3.forward) + 45f * i;
+                newBalls.Add(CreateBall(ball.transform.position, angle));
+            }
+        });
+        balls.AddRange(newBalls);
     }
 
     public void RemoveBall(Ball ball)
@@ -76,6 +99,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GameManager.Instance.GetPowerUp(PowerUpType.SplitBall);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            GameManager.Instance.GetPowerUp(PowerUpType.MultiBall);
         }
     }
 }
