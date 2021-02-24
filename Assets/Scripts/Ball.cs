@@ -26,11 +26,12 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-
         if (other.gameObject.CompareTag("Pad"))
-        {
             OnPadHit(other);
-        }
+
+        if (other.gameObject.CompareTag("Wall"))
+            OnWallHit();
+
 
         rigidbody.velocity = rigidbody.velocity.normalized * speed;
     }
@@ -42,17 +43,17 @@ public class Ball : MonoBehaviour
         rigidbody.velocity += Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.up * speed * 2f;
     }
 
-    private void Update()
+    private void OnWallHit()
     {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            var angle = Vector3.Angle(rigidbody.velocity, Vector3.right);
-            print(angle);
-        }
+        var angle = Vector3.Angle(Vector3.up, rigidbody.velocity) - 90;
+        print(angle);
+        if (Mathf.Abs(angle) < 3)
+            rigidbody.velocity = Quaternion.AngleAxis(15, Vector3.forward) * rigidbody.velocity;
     }
 
-    private void OnBecameInvisible()
+    private void Update()
     {
-        GameManager.Instance.RemoveBall(this);
+        if (Mathf.Abs(transform.position.x) > 27 || Mathf.Abs(transform.position.y) > 15)
+            GameManager.Instance.RemoveBall(this);
     }
 }

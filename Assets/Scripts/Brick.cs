@@ -19,15 +19,16 @@ public class Brick : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         hits -= 1;
-        if (hits <= 0)
-        {
+        if (--hits <= 0)
             DestroyThisBrick();
-        }
         else
-        {
-            renderer.material = hitMaterial;
-            Invoke("ResetMaterial", .1f);
-        }
+            Blink();
+    }
+
+    private void Blink()
+    {
+        renderer.material = hitMaterial;
+        Invoke("ResetMaterial", .1f);
     }
 
     private void ResetMaterial()
