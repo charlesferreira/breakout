@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         Instantiate(padPrefab, padSpawnPoint);
     }
 
-    private Ball CreateBall(Vector3 position, float angle = 0)
+    private Ball CreateBall(Vector3 position, float angle = -45)
     {
         return Instantiate(ballPrefab, position, Quaternion.AngleAxis(angle, Vector3.forward));
     }

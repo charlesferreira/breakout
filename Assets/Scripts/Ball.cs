@@ -46,7 +46,6 @@ public class Ball : MonoBehaviour
     private void OnWallHit()
     {
         var angle = Vector3.Angle(Vector3.up, rigidbody.velocity) - 90;
-        print(angle);
         if (Mathf.Abs(angle) < 3)
             rigidbody.velocity = Quaternion.AngleAxis(15, Vector3.forward) * rigidbody.velocity;
     }
