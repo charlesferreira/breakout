@@ -6148,9 +6148,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballSpawnPoint: {fileID: 2112605650}
   padSpawnPoint: {fileID: 1830094456}
+  text: {fileID: 1019932359}
   ballPrefab: {fileID: 7222574006508447292, guid: 740c15c27661421449e1057098c27da9, type: 3}
   padPrefab: {fileID: 4176967996555947924, guid: ba74010159c8f7940b4daaaa37c3b3b3, type: 3}
-  text: {fileID: 1019932359}
+  powerUpPrefab: {fileID: 1677819633004839055, guid: c54e11e343ed8764dbaa3eb616188789, type: 3}
+  powerUps:
+  - {fileID: 11400000, guid: ae4ad979675203742bd8e5210658895b, type: 2}
 --- !u!4 &1364178626
 Transform:
   m_ObjectHideFlags: 0

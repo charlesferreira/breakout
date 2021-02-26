@@ -2,22 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUp : MonoBehaviour
+public class PowerUpItem : MonoBehaviour
 {
-    [SerializeField] private PowerUpPreset preset;
+    private PowerUp _powerUp;
+    public PowerUp PowerUp
+    {
+        get { return _powerUp; }
+        set
+        {
+            _powerUp = value;
+            spriteRenderer.sprite = value.Icon;
+        }
+    }
 
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
-        Destroy(gameObject, 3);
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        spriteRenderer.sprite = preset.sprite;
+        Destroy(gameObject, 3);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        GameManager.Instance.GetPowerUp(preset.type);
+        PowerUp.Apply();
     }
 }

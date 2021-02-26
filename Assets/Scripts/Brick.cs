@@ -40,5 +40,6 @@ public class Brick : MonoBehaviour
     {
         Destroy(gameObject);
         GameManager.Instance.Score += points;
+        GameManager.Instance.DropPowerUp(transform.position);
     }
 }

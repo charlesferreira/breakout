@@ -7,15 +7,26 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] Transform ballSpawnPoint;
-    [SerializeField] Transform padSpawnPoint;
+    [Header("Spawn Points")]
+    [SerializeField] private Transform ballSpawnPoint;
+    [SerializeField] private Transform padSpawnPoint;
 
-    [SerializeField] Ball ballPrefab;
-    [SerializeField] Pad padPrefab;
+    [Header("References")]
+    [SerializeField] private TextMeshProUGUI text;
 
-    [SerializeField] TextMeshProUGUI text;
+    [Header("Prefabs")]
+    [SerializeField] private Ball ballPrefab;
+    [SerializeField] private Pad padPrefab;
+    [SerializeField] private PowerUpItem powerUpPrefab;
 
-    private List<Ball> balls;
+    [Header("Settings")]
+    [Range(0, 1)]
+    [SerializeField] private float powerUpDropRate;
+
+    [Header("Presets")]
+    [SerializeField] private List<PowerUp> powerUps;
+
+    public List<Ball> Balls { get; private set; }
 
     private int _score;
     public int Score
@@ -32,78 +43,36 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
         Init();
     }
 
     private void Init()
     {
         var ball = CreateBall(ballSpawnPoint.position);
-        balls = new List<Ball>() { ball };
+        Balls = new List<Ball>() { ball };
 
         Instantiate(padPrefab, padSpawnPoint);
     }
 
-    private Ball CreateBall(Vector3 position, float angle = -45)
+    public Ball CreateBall(Vector3 position, float angle = -45f)
     {
         return Instantiate(ballPrefab, position, Quaternion.AngleAxis(angle, Vector3.forward));
     }
 
-    public void GetPowerUp(PowerUpType type)
-    {
-        switch (type)
-        {
-            case PowerUpType.SplitBall:
-                SplitBall();
-                break;
-
-            case PowerUpType.MultiBall:
-                MultiBall();
-                break;
-        }
-    }
-
-    private void SplitBall()
-    {
-        var newBalls = new List<Ball>();
-        balls.ForEach(ball =>
-        {
-            var angle = Vector3.SignedAngle(Vector3.up, ball.Velocity, Vector3.forward) + 22.5f;
-            newBalls.Add(CreateBall(ball.transform.position, angle));
-            ball.Velocity = Quaternion.Euler(0, 0, -22.5f) * ball.Velocity;
-        });
-        balls.AddRange(newBalls);
-    }
-
-    private void MultiBall()
-    {
-        var newBalls = new List<Ball>();
-        balls.ForEach(ball =>
-        {
-            for (var i = 1; i < 8; i++)
-            {
-                var angle = Vector3.SignedAngle(Vector3.up, ball.Velocity, Vector3.forward) + 45f * i;
-                newBalls.Add(CreateBall(ball.transform.position, angle));
-            }
-        });
-        balls.AddRange(newBalls);
-    }
-
     public void RemoveBall(Ball ball)
     {
-        balls.Remove(ball);
+        Balls.Remove(ball);
         Destroy(ball.gameObject);
     }
 
-    private void Update()
+    public void DropPowerUp(Vector3 position)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameManager.Instance.GetPowerUp(PowerUpType.SplitBall);
-        }
+        var dropChance = Random.Range(0f, 1f);
+        if (dropChance > powerUpDropRate)
+            return;
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            GameManager.Instance.GetPowerUp(PowerUpType.MultiBall);
-        }
+        var powerUp = Instantiate(powerUpPrefab, position, Quaternion.identity);
+        powerUp.PowerUp = powerUps[0];
     }
 }
