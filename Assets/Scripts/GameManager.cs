@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<PowerUp> powerUps;
 
     public List<Ball> Balls { get; private set; }
+    public Pad Pad { get; private set; }
 
     private int _score;
     public int Score
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         var ball = CreateBall(ballSpawnPoint.position);
         Balls = new List<Ball>() { ball };
 
-        Instantiate(padPrefab, padSpawnPoint);
+        Pad = Instantiate(padPrefab, padSpawnPoint);
     }
 
     public Ball CreateBall(Vector3 position, float angle = -45f)
