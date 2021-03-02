@@ -11,6 +11,7 @@ public abstract class PowerUp : ScriptableObject
     [SerializeField] private DropRate dropRate;
 
     public Sprite Icon { get { return icon; } }
+    public DropRate Rate { get { return dropRate; } }
 
     public abstract void Apply();
 }

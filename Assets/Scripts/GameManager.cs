@@ -72,7 +72,39 @@ public class GameManager : MonoBehaviour
         if (dropChance > powerUpDropRate)
             return;
 
-        var powerUp = Instantiate(powerUpPrefab, position, Quaternion.identity);
-        powerUp.PowerUp = powerUps[0];
+        print("DROP");
+
+        var dropRange = 100 * dropChance / powerUpDropRate;
+
+        PowerUp.DropRate dropType;
+        if (dropRange < 40) dropType = PowerUp.DropRate.High;
+        else if (dropRange < 70) dropType = PowerUp.DropRate.Average;
+        else if (dropRange < 90) dropType = PowerUp.DropRate.Low;
+        else dropType = PowerUp.DropRate.VeryLow;
+
+        switch (dropType)
+        {
+            case PowerUp.DropRate.High:
+                print("HIGH: " + dropType);
+                break;
+            case PowerUp.DropRate.Average:
+                print("AVERAGE: " + dropType);
+                break;
+            case PowerUp.DropRate.Low:
+                print("LOW: " + dropType);
+                break;
+            case PowerUp.DropRate.VeryLow:
+                print("VERY LOW: " + dropType);
+                break;
+        }
+
+        var possiblePowerUps = powerUps.FindAll(p => p.Rate == dropType);
+        if (possiblePowerUps.Count > 0)
+        {
+            var powerUp = Instantiate(powerUpPrefab, position, Quaternion.identity);
+            var index = Random.Range(0, possiblePowerUps.Count);
+            powerUp.PowerUp = possiblePowerUps[index];
+        }
+
     }
 }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2572008cf3e50fc4eb92199a70bcb670, type: 3}
-  m_Name: SplitBall
+  m_Name: TripleBall
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: d951b88f83197e74daae566e85442d25, type: 3}
-  dropRate: 3
-  splitInto: 2
-  angleBetweenBalls: 60
-  additionalRotation: 0
+  dropRate: 1
+  splitInto: 3
+  angleBetweenBalls: 120
+  additionalRotation: 60
