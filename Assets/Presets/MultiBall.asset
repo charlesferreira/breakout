@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MultiBall
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 1fbe9abe387e74d439b13399c5306083, type: 3}
+  dropRate: 0
   splitInto: 8
   angleBetweenBalls: 45
   additionalRotation: 22.5

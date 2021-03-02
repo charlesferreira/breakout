@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SplitBall
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: d951b88f83197e74daae566e85442d25, type: 3}
+  dropRate: 2
   splitInto: 2
   angleBetweenBalls: 60
   additionalRotation: 0
