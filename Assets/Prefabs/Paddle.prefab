@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5572253493588351790}
   - component: {fileID: 2521960736536755396}
   - component: {fileID: 7459199844734163785}
+  - component: {fileID: 5277558476819973008}
   m_Layer: 7
-  m_Name: Sphere
+  m_Name: LeftEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2395945379694161745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalPosition: {x: -2.25, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4176967996555947922}
@@ -81,6 +82,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &5277558476819973008
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395945379694161745}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4176967996555947927
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +158,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b22f551d25eee648b1eef1579aab400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingSize: {fileID: 11400000, guid: 56e8c276c4d524b44bc102ff3a1fb8ce, type: 2}
+  minSize: {fileID: 11400000, guid: dadc33c2bc6d95d47b9d043bc31ba111, type: 2}
+  maxSize: {fileID: 11400000, guid: 8c5d3f488c78fc349b06bd9f2396c216, type: 2}
+  bar: {fileID: 3583781762504201542}
+  leftEnd: {fileID: 5572253493588351790}
+  rightEnd: {fileID: 353147740652011823}
 --- !u!1 &4522097617877732602
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,9 +175,9 @@ GameObject:
   - component: {fileID: 3583781762504201542}
   - component: {fileID: 5285619473787311845}
   - component: {fileID: 6927185396888787725}
-  - component: {fileID: 3585509296544803990}
+  - component: {fileID: 6231340951321987688}
   m_Layer: 7
-  m_Name: Cylinder
+  m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +192,7 @@ Transform:
   m_GameObject: {fileID: 4522097617877732602}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 2, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 2.25, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4176967996555947922}
   m_RootOrder: 0
@@ -226,8 +246,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3585509296544803990
-CapsuleCollider:
+--- !u!65 &6231340951321987688
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -236,10 +256,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.25
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 2
+  m_Size: {x: 1.0000004, y: 2, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7379069972742786675
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,8 +270,9 @@ GameObject:
   - component: {fileID: 353147740652011823}
   - component: {fileID: 1819409841201214622}
   - component: {fileID: 6088102040798591445}
+  - component: {fileID: 2989940490916154798}
   m_Layer: 7
-  m_Name: Sphere (1)
+  m_Name: RightEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -266,7 +286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7379069972742786675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 2.25, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4176967996555947922}
@@ -321,3 +341,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &2989940490916154798
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379069972742786675}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
