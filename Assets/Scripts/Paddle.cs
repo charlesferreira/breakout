@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Pad : MonoBehaviour
+public class Paddle : MonoBehaviour
 {
     private new Rigidbody rigidbody;
 

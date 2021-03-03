@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2572008cf3e50fc4eb92199a70bcb670, type: 3}
-  m_Name: TripleBall
+  m_Script: {fileID: 11500000, guid: 3c3006a5a3933a146b61b1d454a14b6b, type: 3}
+  m_Name: Extend
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: d951b88f83197e74daae566e85442d25, type: 3}
-  dropRate: 1
-  splitInto: 3
-  angleBetweenBalls: 120
-  additionalRotation: 60
+  icon: {fileID: 21300000, guid: 66fb34754f39d2349a02c403cdffe50e, type: 3}
+  dropRate: 3
+  additionalSize: 1

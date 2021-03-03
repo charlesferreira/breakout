@@ -26,8 +26,8 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Pad"))
-            OnPadHit(other);
+        if (other.gameObject.CompareTag("Paddle"))
+            OnPaddleHit(other);
 
         if (other.gameObject.CompareTag("Wall"))
             OnWallHit();
@@ -36,9 +36,9 @@ public class Ball : MonoBehaviour
         rigidbody.velocity = rigidbody.velocity.normalized * speed;
     }
 
-    private void OnPadHit(Collision pad)
+    private void OnPaddleHit(Collision paddle)
     {
-        var dx = (pad.transform.position.x - transform.position.x) / pad.collider.bounds.extents.x;
+        var dx = (paddle.transform.position.x - transform.position.x) / paddle.collider.bounds.extents.x;
         var angle = dx * 45; // [-45, 45]
         rigidbody.velocity += Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.up * speed * 2f;
     }

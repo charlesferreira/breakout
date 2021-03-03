@@ -6147,14 +6147,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballSpawnPoint: {fileID: 2112605650}
-  padSpawnPoint: {fileID: 1830094456}
+  paddleSpawnPoint: {fileID: 1830094456}
   text: {fileID: 1019932359}
   ballPrefab: {fileID: 7222574006508447292, guid: 740c15c27661421449e1057098c27da9, type: 3}
-  padPrefab: {fileID: 4176967996555947924, guid: ba74010159c8f7940b4daaaa37c3b3b3, type: 3}
+  paddlePrefab: {fileID: 4176967996555947924, guid: ba74010159c8f7940b4daaaa37c3b3b3, type: 3}
   powerUpPrefab: {fileID: 1677819633004839055, guid: c54e11e343ed8764dbaa3eb616188789, type: 3}
-  powerUpDropRate: 0.2
+  powerUpDropRate: 0.1
   powerUps:
   - {fileID: 11400000, guid: ae4ad979675203742bd8e5210658895b, type: 2}
+  - {fileID: 11400000, guid: 41cce2c30422ebc45bf47afa3cb36898, type: 2}
+  - {fileID: 11400000, guid: cffcd4ba5963ea74180692d68d8d1112, type: 2}
+  - {fileID: 11400000, guid: 82e4dc0e9a90de641bb00f34ffef29c9, type: 2}
+  - {fileID: 11400000, guid: ea2a9da5dc841504391bceed2e098d42, type: 2}
 --- !u!4 &1364178626
 Transform:
   m_ObjectHideFlags: 0
@@ -7997,7 +8001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1830094456}
   m_Layer: 7
-  m_Name: PadSpawnPoint
+  m_Name: PaddleSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

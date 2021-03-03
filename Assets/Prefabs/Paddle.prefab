@@ -93,8 +93,8 @@ GameObject:
   - component: {fileID: 4176967996555947925}
   - component: {fileID: 4176967996555947924}
   m_Layer: 7
-  m_Name: Pad
-  m_TagString: Pad
+  m_Name: Paddle
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
