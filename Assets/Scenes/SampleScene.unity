@@ -6152,13 +6152,13 @@ MonoBehaviour:
   ballPrefab: {fileID: 7222574006508447292, guid: 740c15c27661421449e1057098c27da9, type: 3}
   paddlePrefab: {fileID: 4176967996555947924, guid: ba74010159c8f7940b4daaaa37c3b3b3, type: 3}
   powerUpPrefab: {fileID: 1677819633004839055, guid: c54e11e343ed8764dbaa3eb616188789, type: 3}
-  powerUpDropRate: 0.1
+  powerUpDropRate: {fileID: 11400000, guid: 097b399efa43fc249bb1941437fc98ff, type: 2}
   powerUps:
-  - {fileID: 11400000, guid: ae4ad979675203742bd8e5210658895b, type: 2}
-  - {fileID: 11400000, guid: 41cce2c30422ebc45bf47afa3cb36898, type: 2}
-  - {fileID: 11400000, guid: cffcd4ba5963ea74180692d68d8d1112, type: 2}
-  - {fileID: 11400000, guid: 82e4dc0e9a90de641bb00f34ffef29c9, type: 2}
   - {fileID: 11400000, guid: ea2a9da5dc841504391bceed2e098d42, type: 2}
+  - {fileID: 11400000, guid: ae4ad979675203742bd8e5210658895b, type: 2}
+  - {fileID: 11400000, guid: e918cdd3906068c4981b485a9a39bae3, type: 2}
+  - {fileID: 11400000, guid: 26ecd401099b7c14c87c8015ca634358, type: 2}
+  - {fileID: 11400000, guid: 41cce2c30422ebc45bf47afa3cb36898, type: 2}
 --- !u!4 &1364178626
 Transform:
   m_ObjectHideFlags: 0

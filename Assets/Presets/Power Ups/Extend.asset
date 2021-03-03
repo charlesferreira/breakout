@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 66fb34754f39d2349a02c403cdffe50e, type: 3}
   dropRate: 3
-  additionalSize: 1
+  method: 0
+  size: 4

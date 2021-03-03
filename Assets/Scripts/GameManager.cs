@@ -20,8 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PowerUpItem powerUpPrefab;
 
     [Header("Settings")]
-    [Range(0, 1)]
-    [SerializeField] private float powerUpDropRate;
+    [SerializeField] private FloatVariable powerUpDropRate;
 
     [Header("Presets")]
     [SerializeField] private List<PowerUp> powerUps;
@@ -46,6 +45,16 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
 
         Init();
+
+        Cursor.visible = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DropPowerUp(Vector3.zero);
+        }
     }
 
     private void Init()
@@ -56,7 +65,7 @@ public class GameManager : MonoBehaviour
         Paddle = Instantiate(paddlePrefab, paddleSpawnPoint);
     }
 
-    public Ball CreateBall(Vector3 position, float angle = -45f)
+    public Ball CreateBall(Vector3 position, float angle = -40f)
     {
         return Instantiate(ballPrefab, position, Quaternion.AngleAxis(angle, Vector3.forward));
     }
@@ -70,10 +79,10 @@ public class GameManager : MonoBehaviour
     public void DropPowerUp(Vector3 position)
     {
         var dropChance = Random.Range(0f, 1f);
-        if (dropChance > powerUpDropRate)
+        if (dropChance > powerUpDropRate.value)
             return;
 
-        var dropRange = 100 * dropChance / powerUpDropRate;
+        var dropRange = 100 * dropChance / powerUpDropRate.value;
 
         PowerUp.DropRate dropType;
         if (dropRange < 40) dropType = PowerUp.DropRate.High;

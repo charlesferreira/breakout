@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: decf9670c1632f34cb52f998e650c603, type: 3}
   m_Name: PaddleSizeDefault
   m_EditorClassIdentifier: 
-  value: 3
+  value: 5
